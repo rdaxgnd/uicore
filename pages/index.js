@@ -324,9 +324,9 @@ export default function Home() {
                   </div>
                   <div className={styles.formColumn} style={{marginTop: 16, backgroundColor: '#ffffff', padding: 14, fontSize: 15, color: getColorString(colorSecondary), ...boxRadius}}>
                     <div style={{paddingLeft: 10}}>Message</div>
-                    <div><textarea maxLength={120} resize={'none'} placeholder='Type your message here' style={{resize: 'none', fontFamily: 'roboto', width: '100%', height: 100, border: 'none', backgroundColor: '#ffffff', outline: 'none', fontSize: 15, color: getColorString(colorPrimary)}}></textarea></div>
+                    <div><textarea maxLength={120} resize={'none'} placeholder='Type your message here' style={{resize: 'none', fontFamily: 'roboto', width: '100%', height: 100, border: 'none', backgroundColor: '#ffffff', outline: 'none', fontSize: 15, color: getColorString(colorSecondary)}}></textarea></div>
                   </div>
-                  <button style={{marginTop: 26, backgroundColor: getColorString(colorSecondaryDark), ...boxRadius, border: 'none', padding: 16, width: 180, fontSize: 14, fontWeight: 700, color: '#ffffff'}}>BUTTON</button>
+                  <button style={{marginTop: 26, backgroundColor: getColorString(colorSecondaryDark), ...boxRadius, border: 'none', padding: 16, width: 180, fontSize: 14, fontWeight: 700, color: getColorString(colorSecondaryLight)}}>BUTTON</button>
               </div>
             </div>
           </div>
@@ -337,7 +337,7 @@ export default function Home() {
                   <div>
                     Name
                   </div>
-                  <div>
+                  <div style={{paddingLeft: 12}}>
                     Surname
                   </div>
                   <div style={{textAlign: 'right'}}>
@@ -352,8 +352,8 @@ export default function Home() {
                     Doe
                   </div>
                   <div style={{textAlign: 'right', padding: 12}}>
-                    <div style={{float: 'right', backgroundColor: getColorString(colorPrimaryDark), padding: 6, ...boxRadius}}>
-                    <img className={styles.lowOpacity} style={{width: 22, verticalAlign: 'middle'}} src={'check_w.svg'}></img>
+                    <div style={{float: 'right', backgroundColor: getColorString(colorPrimaryLight), padding: 6, ...boxRadius}}>
+                    <img className={styles.lowOpacity} style={{width: 22, verticalAlign: 'middle'}} src={'check.svg'}></img>
                     </div>
                   </div>
                 </div>
@@ -365,8 +365,8 @@ export default function Home() {
                     Brown
                   </div>
                   <div style={{textAlign: 'right', padding: 12}}>
-                    <div style={{float: 'right', backgroundColor: getColorString(colorPrimaryDark), padding: 6, ...boxRadius}}>
-                    <img className={styles.lowOpacity} style={{width: 22, verticalAlign: 'middle'}} src={'check_w.svg'}></img>
+                    <div style={{float: 'right', backgroundColor: getColorString(colorPrimaryLight), padding: 6, ...boxRadius}}>
+                    <img className={styles.lowOpacity} style={{width: 22, verticalAlign: 'middle'}} src={'check.svg'}></img>
                     </div>
                   </div>
                 </div>
@@ -378,7 +378,7 @@ export default function Home() {
                     Smith
                   </div>
                   <div style={{textAlign: 'right', padding: 12}}>
-                    <div style={{float: 'right', backgroundColor: getColorString(colorPrimaryDark), padding: 6, ...boxRadius}}>
+                    <div style={{float: 'right', backgroundColor: getColorString(colorPrimary), padding: 6, ...boxRadius}}>
                     <img className={styles.lowOpacity} style={{width: 22, verticalAlign: 'middle'}} src={'check.svg'}></img>
                     </div>
                   </div>
