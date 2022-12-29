@@ -6,8 +6,8 @@ import styles from '../styles/Home.module.css'
 // Generator settings as basic
 const varStyles = {
   boxradius: [3, 4, 8, 8, 8, 10, 10, 10, 10, 12, 12, 12, 16, 20, 24, 30, 34, 38],
-  boxpadding: [30, 32, 34, 40, 42, 44, 46, 50, 52, 54, 56, 60],
-  boxborder: ['2px', '2px', '2px', '2px', '2px', '2px', '2px', '2px', '4px', '4px', '4px', '6px', '6px', '6px',],
+  boxpadding: [30, 32, 34, 40, 42, 44],
+  boxborder: ['0px', '0px', '0px', '0px', '0px', '0px', '0px', '0px', '4px', '4px', '4px', '4px', '4px'],
 
   h1: ['32px', '38px', '42px'],
   h2: ['20px', '22px', '24px'],
@@ -26,7 +26,10 @@ export default function Home() {
   const [pStyle, setPStyle] = React.useState({ fontSize: '18px' })
 
   const [colorPrimary, setColorPrimary] = useState({ red: 25, green: 25, blue: 25 });
+  const [colorPrimaryLight, setColorPrimaryLight] = useState({ red: 25, green: 25, blue: 25 });
+  const [colorPrimaryDark, setColorPrimaryDark] = useState({ red: 25, green: 25, blue: 25 });
   const [colorSecondary, setColorSecondary] = useState({ red: 25, green: 25, blue: 25 });
+  const [colorSecondaryLight, setColorSecondaryLight] = useState({ red: 25, green: 25, blue: 25 });
   const [colorSecondaryDark, setColorSecondaryDark] = useState({ red: 25, green: 25, blue: 25 });
 
   // Random generator function
@@ -47,12 +50,33 @@ export default function Home() {
     };
     setColorPrimary(newColorPrimary);
 
+    const newColorPrimaryLight = {
+      red: Math.max(0, newColorPrimary.red + Math.round(newColorPrimary.red * 0.50)),
+      green: Math.max(0, newColorPrimary.green + Math.round(newColorPrimary.green * 0.50)),
+      blue: Math.max(0, newColorPrimary.blue + Math.round(newColorPrimary.blue * 0.50))
+    };
+    setColorPrimaryLight(newColorPrimaryLight);
+
+    const newColorPrimaryDark = {
+      red: Math.max(0, newColorPrimary.red - Math.round(newColorPrimary.red * 0.50)),
+      green: Math.max(0, newColorPrimary.green - Math.round(newColorPrimary.green * 0.50)),
+      blue: Math.max(0, newColorPrimary.blue - Math.round(newColorPrimary.blue * 0.50))
+    };
+    setColorPrimaryDark(newColorPrimaryDark);
+
     const newColorSecondary = {
       red: Math.floor(Math.random() * 256),
       green: Math.floor(Math.random() * 256),
       blue: Math.floor(Math.random() * 256)
     };
     setColorSecondary(newColorSecondary);
+
+    const newColorSecondaryLight = {
+      red: Math.max(0, newColorSecondary.red + Math.round(newColorSecondary.red * 0.50)),
+      green: Math.max(0, newColorSecondary.green + Math.round(newColorSecondary.green * 0.50)),
+      blue: Math.max(0, newColorSecondary.blue + Math.round(newColorSecondary.blue * 0.50))
+    };
+    setColorSecondaryLight(newColorSecondaryLight);
 
     const newColorSecondaryDark = {
       red: Math.max(0, newColorSecondary.red - Math.round(newColorSecondary.red * 0.50)),
@@ -98,7 +122,7 @@ export default function Home() {
           <img src='green.svg'></img>
         </div>
 
-        <div className={styles.pageMain} style={{backgroundColor: getColorString(colorPrimary), ...boxRadius, ...boxPadding }}>
+        <div style={{marginTop: 60,backgroundColor: getColorString(colorPrimary), ...boxRadius, ...boxPadding, border: `${boxBorder.border} solid ${getColorString(colorPrimaryLight)}`}}>
           <br/>
           <br/>
           <br/>
@@ -107,7 +131,7 @@ export default function Home() {
           <p className={styles.lowOpacity} style={{marginTop: 8, fontSize: 16, color: '#ffffff'}}>{getColorText(colorPrimary)}</p>
         </div>
         <div className={styles.pageColumn}>
-          <div style={{marginTop: 20, ...boxPadding, backgroundColor: getColorString(colorSecondary), ...boxRadius }}>
+          <div style={{marginTop: 20, ...boxPadding, backgroundColor: getColorString(colorSecondary), ...boxRadius, border: `${boxBorder.border} solid ${getColorString(colorSecondaryLight)}`}}>
             <br/>
             <br/>
             <br/>
@@ -115,7 +139,7 @@ export default function Home() {
             <h2 style={{...h2Style, color: '#ffffff'}}>Secondary</h2>
             <p className={styles.lowOpacity} style={{marginTop: 8, fontSize: 16, color: '#ffffff'}}>{getColorText(colorSecondary)}</p>
           </div>
-          <div style={{marginTop: 20, ...boxPadding, backgroundColor: getColorString(colorSecondaryDark), ...boxRadius }}>
+          <div style={{marginTop: 20, ...boxPadding, backgroundColor: getColorString(colorSecondaryDark), ...boxRadius, border: `${boxBorder.border} solid ${getColorString(colorSecondary)}`}}>
             <br/>
             <br/>
             <br/>
@@ -125,84 +149,112 @@ export default function Home() {
           </div>
         </div>
 
-        <div style={{marginTop: 60}} className={styles.pageColumn}>
+        <div style={{marginTop: 120, ...boxPadding}}>
+          <h2 style={{...h2Style, color: '#212127'}}>Fonts</h2>
+        </div>
+        <div style={{marginTop: 40}} className={styles.pageColumn}>
+          <div style={{...boxPadding, backgroundColor: '#cccccc', ...boxRadius}}>
+            <p style={{marginTop: 40, color: '#212127', fontSize: 120}}>Aa</p>
+            <p style={{marginTop: 90, color: '#212127', fontSize: 20}}>
+              a b c d e f g h i j k l m n o p r s t u v w x y z <br/>
+              <br/>
+              1 2 3 4 5 6 7 8 9 0
+            </p>
+            <br/>
+          </div>
           <div style={{...boxPadding}}>
-            <h1 style={{...h1Style, color: getColorString(colorPrimary)}}>Heading One</h1>
-            <h2 style={{...h2Style, marginTop: 20}}>Heading Two</h2>
-
-            <p style={{marginTop: 40}}><a href={'#'} style={{color: getColorString(colorPrimary), textDecoration: 'none'}}>Primary Link</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={'#'} style={{color: getColorString(colorSecondary), textDecoration: 'none'}}>Secondary Link</a></p>
-            <p style={{marginTop: 20}} className={styles.lowOpacity}><a href={'#'} style={{color: getColorString(colorPrimary), textDecoration: 'none'}}>Primary Link</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={'#'} style={{color: getColorString(colorSecondary), textDecoration: 'none'}} className={styles.lowOpacity}>Secondary Link</a></p>
-
-          </div>
-          <div style={{...boxPadding}}>
-            <p style={{textAlign: 'justify'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p style={{textAlign: 'justify', lineHeight: '28px',}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in <a href={'#'} style={{color: getColorString(colorPrimary), textDecoration: 'none'}}>Primary Link</a> eu qui officia deserunt mollit fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
           </div>
         </div>
 
-        <div style={{marginTop: 60}} className={styles.pageColumn}>
-          <div>
-            <button style={{backgroundColor: getColorString(colorPrimary), ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: '#ffffff'}}>PRIMARY</button>
-          </div>
-          <div>
-            <button style={{backgroundColor: getColorString(colorSecondary), ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: '#ffffff'}}>SECONDARY</button>
-          </div>
-          <div>
-            <button style={{backgroundColor: getColorString(colorSecondaryDark), ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: '#ffffff'}}>SECONDARY DARK</button>
-          </div>
-          <div>
-            <button style={{backgroundColor: '#212127', ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: '#ffffff'}}>NEUTRAL</button>
-          </div>
+        <div style={{marginTop: 120, ...boxPadding}}>
+          <h2 style={{...h2Style, color: '#212127'}}>Buttons</h2>
         </div>
-        <div style={{marginTop: 20}} className={styles.pageColumn}>
-          <div>
-            <button className={styles.lowOpacity} style={{backgroundColor: getColorString(colorPrimary), ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: '#ffffff'}}>PRIMARY</button>
+        <div style={{...boxPadding}}>
+          <div className={styles.pageColumn}>
+            <div>
+              <button style={{backgroundColor: getColorString(colorPrimaryLight), ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: getColorString(colorPrimaryDark)}}>PRIMARY</button>
+            </div>
+            <div>
+              <button style={{backgroundColor: getColorString(colorSecondaryLight), ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: getColorString(colorSecondaryDark)}}>SECONDARY</button>
+            </div>
+            <div>
+              <button style={{backgroundColor: getColorString(colorSecondaryDark), ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: getColorString(colorSecondaryLight)}}>SECONDARY DARK</button>
+            </div>
+            <div>
+              <button style={{backgroundColor: '#cccccc', ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: '#212127'}}>NEUTRAL</button>
+            </div>
           </div>
-          <div>
-            <button className={styles.lowOpacity} style={{backgroundColor: getColorString(colorSecondary), ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: '#ffffff'}}>SECONDARY</button>
-          </div>
-          <div>
-            <button className={styles.lowOpacity} style={{backgroundColor: getColorString(colorSecondaryDark), ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: '#ffffff'}}>SECONDARY DARK</button>
-          </div>
-          <div>
-            <button className={styles.lowOpacity} style={{backgroundColor: '#212127', ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: '#ffffff'}}>NEUTRAL</button>
-          </div>
-        </div>
-        <div style={{marginTop: 60}} className={styles.pageColumn}>
-          <div>
-            <button style={{backgroundColor: '#ffffff',border: `2px solid ${getColorString(colorPrimary)}`, ...boxRadius, padding: 16, width: '100%', fontSize: 12, fontWeight: 700, color: getColorString(colorPrimary)}}>PRIMARY</button>
-          </div>
-          <div>
-            <button style={{backgroundColor: '#ffffff',border: `2px solid ${getColorString(colorSecondary)}`, ...boxRadius, padding: 16, width: '100%', fontSize: 12, fontWeight: 700, color: getColorString(colorSecondary)}}>SECONDARY</button>
-          </div>
-          <div>
-            <button style={{backgroundColor: '#ffffff',border: `2px solid ${getColorString(colorSecondaryDark)}`, ...boxRadius, padding: 16, width: '100%', fontSize: 12, fontWeight: 700, color: getColorString(colorSecondaryDark)}}>SECONDARY DARK</button>
-          </div>
-          <div>
-            <button style={{backgroundColor: '#ffffff',border: '2px solid #cccccc', ...boxRadius, padding: 16, width: '100%', fontSize: 12, fontWeight: 700, color: '#cccccc'}}>NEUTRAL LIGHT</button>
-          </div>
-          <div>
-            <button style={{backgroundColor: '#ffffff',border: '2px solid #212127', ...boxRadius, padding: 16, width: '100%', fontSize: 12, fontWeight: 700, color: '#212127'}}>NEUTRAL</button>
-          </div>
-        </div>
-        <div style={{marginTop: 20}} className={styles.pageColumn}>
-          <div>
-            <button className={styles.lowOpacity} style={{backgroundColor: '#ffffff',border: `2px solid ${getColorString(colorPrimary)}`, ...boxRadius, padding: 16, width: '100%', fontSize: 12, fontWeight: 700, color: getColorString(colorPrimary)}}>PRIMARY</button>
-          </div>
-          <div>
-            <button className={styles.lowOpacity} style={{backgroundColor: '#ffffff',border: `2px solid ${getColorString(colorSecondary)}`, ...boxRadius, padding: 16, width: '100%', fontSize: 12, fontWeight: 700, color: getColorString(colorSecondary)}}>SECONDARY</button>
-          </div>
-          <div>
-            <button className={styles.lowOpacity} style={{backgroundColor: '#ffffff',border: `2px solid ${getColorString(colorSecondaryDark)}`, ...boxRadius, padding: 16, width: '100%', fontSize: 12, fontWeight: 700, color: getColorString(colorSecondaryDark)}}>SECONDARY DARK</button>
-          </div>
-          <div>
-            <button className={styles.lowOpacity} style={{backgroundColor: '#ffffff',border: '2px solid #cccccc', ...boxRadius, padding: 16, width: '100%', fontSize: 12, fontWeight: 700, color: '#cccccc'}}>NEUTRAL LIGHT</button>
-          </div>
-          <div>
-            <button className={styles.lowOpacity} style={{backgroundColor: '#ffffff',border: '2px solid #212127', ...boxRadius, padding: 16, width: '100%', fontSize: 12, fontWeight: 700, color: '#212127'}}>NEUTRAL</button>
+          <div style={{marginTop: 20}} className={styles.pageColumn}>
+            <div>
+              <button style={{backgroundColor: '#ffffff', border: `3px solid ${getColorString(colorPrimary)}`, ...boxRadius, padding: 10, width: '100%', fontSize: 12, fontWeight: 700, color: getColorString(colorPrimary)}}>PRIMARY</button>
+            </div>
+            <div>
+              <button style={{backgroundColor: '#ffffff', border: `3px solid ${getColorString(colorSecondary)}`, ...boxRadius, padding: 10, width: '100%', fontSize: 12, fontWeight: 700, color: getColorString(colorSecondary)}}>SECONDARY</button>
+            </div>
+            <div>
+              <button style={{backgroundColor: '#ffffff', border: `3px solid ${getColorString(colorSecondaryDark)}`, ...boxRadius, padding: 10, width: '100%', fontSize: 12, fontWeight: 700, color: getColorString(colorSecondaryDark)}}>SECONDARY DARK</button>
+            </div>
+            <div>
+              <button style={{backgroundColor: '#ffffff', border: `3px solid #212127`, ...boxRadius, padding: 10, width: '100%', fontSize: 12, fontWeight: 700, color: '#212127'}}>NEUTRAL</button>
+            </div>
           </div>
         </div>
 
-        
+        <div style={{marginTop: 90, ...boxPadding}}>
+          <h2 style={{...h2Style, color: '#212127'}}>Cards</h2>
+        </div>
+        <div style={{marginTop: 40}} className={styles.pageColumn}>
+          <div>
+            <div style={{backgroundColor: '#212127', ...boxRadius, ...boxPadding, border: `${boxBorder.border} solid #cccccc`}}>
+            <br/>
+            <br/>
+            <h1 style={{...h1Style, color: '#ffffff'}}>Heading 1</h1>
+            <br/>
+            <p className={styles.lowOpacity} style={{marginTop: 8, fontSize: 16, color: '#ffffff'}}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <br/>
+            <br/>
+            </div>
+          </div>
+          <div>
+            <div style={{backgroundColor: getColorString(colorSecondary), ...boxRadius, ...boxPadding, border: `${boxBorder.border} solid ${getColorString(colorSecondary)}`}}>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <img src={'info.svg'} style={{height: 34}}></img>
+            <br/>
+            <br/>
+            <p style={{marginTop: 8, fontSize: 16, color: '#ffffff'}}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            </div>
+          </div>
+          <div>
+            <div style={{backgroundColor: '#ffffff', border: `3px solid ${getColorString(colorPrimary)}`, ...boxRadius, ...boxPadding}}>
+            <p className={styles.lowOpacity} style={{marginTop: 8, color: getColorString(colorPrimary)}}>Lorem Ipsum</p>
+            <h1 style={{fontSize: 76, color: getColorString(colorPrimary)}}>&#36;28</h1>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <div className={styles.pageColumn}>
+              <div>
+              <button style={{backgroundColor: '#ffffff', border: `3px solid ${getColorString(colorPrimary)}`, ...boxRadius, padding: 10, width: '100%', fontSize: 12, fontWeight: 700, color: getColorString(colorPrimary)}}>PRIMARY</button>
+              </div>
+              <div>
+              <button style={{backgroundColor: '#cccccc', border: `3px solid #cccccc`, ...boxRadius, padding: 10, width: '100%', fontSize: 12, fontWeight: 700, color: '#212127'}}>NEUTRAL</button>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
         
       </div>
       <div className={styles.lowOpacity} style={{padding: 20, fontSize: 16, color: '#ffffff'}}>

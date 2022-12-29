@@ -36,11 +36,6 @@
   opacity: 0.4;
 }
 
-.pageMain {
-  margin-top: 40px;
-  width: 100%;
-}
-
 .pageColumn {
   display: grid;
   grid-auto-columns: 1fr;
