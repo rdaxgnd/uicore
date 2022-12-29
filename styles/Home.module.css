@@ -43,6 +43,12 @@
   gap: 20px;
 }
 
+.formColumn {
+  display: grid;
+  grid-auto-columns: 90px auto;
+  grid-auto-flow: column;
+}
+
 @media (max-width: 600px) {
   
 }

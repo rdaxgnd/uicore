@@ -32,6 +32,11 @@ export default function Home() {
   const [colorSecondaryLight, setColorSecondaryLight] = useState({ red: 25, green: 25, blue: 25 });
   const [colorSecondaryDark, setColorSecondaryDark] = useState({ red: 25, green: 25, blue: 25 });
 
+  const [colorPrimarySuccess, setColorPrimarySuccess] = useState({ red: 25, green: 25, blue: 25 });
+  const [colorPrimaryDanger, setColorPrimaryDanger] = useState({ red: 25, green: 25, blue: 25 });
+  const [colorPrimaryWarning, setColorPrimaryWarning] = useState({ red: 25, green: 25, blue: 25 });
+  const [colorPrimaryInfo, setColorPrimaryInfo] = useState({ red: 25, green: 25, blue: 25 });
+
   // Random generator function
   function generateStyles() {
     setBoxRadius({ borderRadius: varStyles.boxradius[Math.floor(Math.random() * varStyles.boxradius.length)] })
@@ -51,9 +56,9 @@ export default function Home() {
     setColorPrimary(newColorPrimary);
 
     const newColorPrimaryLight = {
-      red: Math.max(0, newColorPrimary.red + Math.round(newColorPrimary.red * 0.50)),
-      green: Math.max(0, newColorPrimary.green + Math.round(newColorPrimary.green * 0.50)),
-      blue: Math.max(0, newColorPrimary.blue + Math.round(newColorPrimary.blue * 0.50))
+      red: Math.min(250, newColorPrimary.red + Math.round(newColorPrimary.red * 0.50)),
+      green: Math.min(250, newColorPrimary.green + Math.round(newColorPrimary.green * 0.50)),
+      blue: Math.min(250, newColorPrimary.blue + Math.round(newColorPrimary.blue * 0.50))
     };
     setColorPrimaryLight(newColorPrimaryLight);
 
@@ -72,9 +77,9 @@ export default function Home() {
     setColorSecondary(newColorSecondary);
 
     const newColorSecondaryLight = {
-      red: Math.max(0, newColorSecondary.red + Math.round(newColorSecondary.red * 0.50)),
-      green: Math.max(0, newColorSecondary.green + Math.round(newColorSecondary.green * 0.50)),
-      blue: Math.max(0, newColorSecondary.blue + Math.round(newColorSecondary.blue * 0.50))
+      red: Math.min(250, newColorSecondary.red + Math.round(newColorSecondary.red * 0.50)),
+      green: Math.min(250, newColorSecondary.green + Math.round(newColorSecondary.green * 0.50)),
+      blue: Math.min(250, newColorSecondary.blue + Math.round(newColorSecondary.blue * 0.50))
     };
     setColorSecondaryLight(newColorSecondaryLight);
 
@@ -85,6 +90,33 @@ export default function Home() {
     };
     setColorSecondaryDark(newColorSecondaryDark);
 
+    const newColorPrimarySuccess = {
+      red: Math.min(200, newColorPrimary.red + Math.round(newColorPrimary.red * 0.50)),
+      green: 250,
+      blue: Math.min(200, newColorPrimary.blue + Math.round(newColorPrimary.blue * 0.50))
+    };
+    setColorPrimarySuccess(newColorPrimarySuccess);
+
+    const newColorPrimaryDanger = {
+      red: 255,
+      green: Math.min(220, newColorPrimary.green + Math.round(newColorPrimary.green * 0.10)),
+      blue: Math.min(220, newColorPrimary.blue + Math.round(newColorPrimary.blue * 0.10))
+    };
+    setColorPrimaryDanger(newColorPrimaryDanger);
+
+    const newColorPrimaryWarning = {
+      red: 250,
+      green: 250,
+      blue: Math.min(200, newColorPrimary.blue + Math.round(newColorPrimary.blue * 0.50))
+    };
+    setColorPrimaryWarning(newColorPrimaryWarning);
+
+    const newColorPrimaryInfo = {
+      red: Math.min(220, newColorPrimary.red + Math.round(newColorPrimary.red * 0.10)),
+      green: Math.min(220, newColorPrimary.green + Math.round(newColorPrimary.green * 0.10)),
+      blue: 255
+    };
+    setColorPrimaryInfo(newColorPrimaryInfo);
   }
 
   // RGB value convert to string
@@ -156,7 +188,7 @@ export default function Home() {
           <div style={{...boxPadding, backgroundColor: '#cccccc', ...boxRadius}}>
             <p style={{marginTop: 40, color: '#212127', fontSize: 120}}>Aa</p>
             <p style={{marginTop: 90, color: '#212127', fontSize: 20}}>
-              a b c d e f g h i j k l m n o p r s t u v w x y z <br/>
+              a b c d e f g h i j k l m n o p r s t u v w x y z<br/>
               <br/>
               1 2 3 4 5 6 7 8 9 0
             </p>
@@ -255,6 +287,92 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        <div className={styles.pageColumn} style={{marginTop: 120}}>
+          <div>
+            <div style={{...boxPadding}}>
+              <h2 style={{...h2Style, color: '#212127'}}>Call</h2>
+            </div>
+            <div style={{marginTop: 40, ...boxPadding, ...boxRadius, backgroundColor: getColorString(colorPrimaryLight)}}>
+              <h1 style={{...h1Style, color: getColorString(colorPrimaryDark)}}>Call to Action</h1>
+              <br/>
+              <br/>
+              <p style={{paddingRight: 160, color: getColorString(colorPrimaryDark)}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit sedo eiusmod tempor.</p>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <button style={{backgroundColor: getColorString(colorPrimaryDark), ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: getColorString(colorPrimaryLight)}}>GO TO ACTION</button>
+            </div>
+          </div>
+          <div>
+            <div style={{...boxPadding}}>
+              <h2 style={{...h2Style, color: '#212127'}}>Form</h2>
+            </div>
+            <div style={{backgroundColor: '#efefef', marginTop: 40, ...boxPadding, ...boxRadius}} className={styles.pageColumn}>
+              <div>
+                  <p style={{color: '#1C1C1E', marginBottom: 20}}>
+                    It's and example web form to see how powerful our generated interfaces.
+                  </p>
+                  <div className={styles.formColumn} style={{backgroundColor: '#ffffff', padding: 14, fontSize: 15, color: getColorString(colorSecondary), border: `2px solid ${getColorString(colorSecondaryDark)}`, ...boxRadius}}>
+                    <div style={{paddingLeft: 10}}>Name</div>
+                    <div><input placeholder='Your name' style={{width: '100%', border: 'none', outline: 'none', fontSize: 15, color: getColorString(colorSecondary)}}></input></div>
+                  </div>
+                  <div className={styles.formColumn} style={{marginTop: 16, backgroundColor: '#ffffff', padding: 14, fontSize: 15, color: getColorString(colorSecondary), ...boxRadius}}>
+                    <div style={{paddingLeft: 10}}>Surname</div>
+                    <div><input placeholder='Your surname' style={{width: '100%', border: 'none', backgroundColor: '#ffffff', outline: 'none', fontSize: 15, color: getColorString(colorSecondary)}}></input></div>
+                  </div>
+                  <div className={styles.formColumn} style={{marginTop: 16, backgroundColor: '#ffffff', padding: 14, fontSize: 15, color: getColorString(colorSecondary), ...boxRadius}}>
+                    <div style={{paddingLeft: 10}}>E-mail</div>
+                    <div><input placeholder='Your email address' style={{width: '100%', border: 'none', backgroundColor: '#ffffff', outline: 'none', fontSize: 15, color: getColorString(colorSecondary)}}></input></div>
+                  </div>
+                  <div className={styles.formColumn} style={{marginTop: 16, backgroundColor: '#ffffff', padding: 14, fontSize: 15, color: getColorString(colorSecondary), ...boxRadius}}>
+                    <div style={{paddingLeft: 10}}>Message</div>
+                    <div><textarea maxLength={120} resize={'none'} placeholder='Type your message here' style={{resize: 'none', fontFamily: 'roboto', width: '100%', height: 100, border: 'none', backgroundColor: '#ffffff', outline: 'none', fontSize: 15, color: getColorString(colorPrimary)}}></textarea></div>
+                  </div>
+                  <button style={{marginTop: 26, backgroundColor: getColorString(colorSecondaryDark), ...boxRadius, border: 'none', padding: 16, width: 180, fontSize: 14, fontWeight: 700, color: '#ffffff'}}>BUTTON</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.pageColumn} style={{marginTop: 120}}>
+          <div>
+            <div style={{...boxPadding}}>
+              <h2 style={{...h2Style, color: '#212127'}}>Alerts</h2>
+            </div>
+            <div style={{marginTop: 40, ...boxPadding, ...boxRadius, backgroundColor: getColorString(colorPrimarySuccess)}}>
+            <img className={styles.lowOpacity} style={{position: 'relative', float: 'right', height: 24}} src={'close.svg'}></img>
+              <p style={{color: '#212127'}}><strong>Success!</strong> Sum dolor consectetur adipiscing.</p>
+            </div>
+            <div style={{marginTop: 20, ...boxPadding, ...boxRadius, backgroundColor: getColorString(colorPrimaryDanger)}}>
+            <img className={styles.lowOpacity} style={{position: 'relative', float: 'right', height: 24}} src={'close.svg'}></img>
+              <p style={{color: '#212127'}}><strong>Danger!</strong> Sum dolor consectetur adipiscing.</p>
+            </div>
+            <div style={{marginTop: 20, ...boxPadding, ...boxRadius, backgroundColor: getColorString(colorPrimaryWarning)}}>
+            <img className={styles.lowOpacity} style={{position: 'relative', float: 'right', height: 24}} src={'close.svg'}></img>
+              <p style={{color: '#212127'}}><strong>Warning!</strong> Sum dolor consectetur adipiscing.</p>
+            </div>
+            <div style={{marginTop: 20, ...boxPadding, ...boxRadius, backgroundColor: getColorString(colorPrimaryInfo)}}>
+            <img className={styles.lowOpacity} style={{position: 'relative', float: 'right', height: 24}} src={'close.svg'}></img>
+              <p style={{color: '#212127'}}><strong>Info!</strong> Sum dolor consectetur adipiscing.</p>
+            </div>
+          </div>
+          <div>
+            <div style={{...boxPadding}}>
+              <h2 style={{...h2Style, color: '#212127'}}>List</h2>
+            </div>
+            <div style={{backgroundColor: '#efefef', marginTop: 40, ...boxPadding, ...boxRadius}} className={styles.pageColumn}>
+              <div>
+              a
+              </div>
+            </div>
+          </div>
+        </div>
         
       </div>
       <div className={styles.lowOpacity} style={{padding: 20, fontSize: 16, color: '#ffffff'}}>
@@ -263,8 +381,16 @@ export default function Home() {
           &nbsp;&nbsp;&nbsp;&nbsp;background-color: {getColorString(colorPrimary)}&#59;<br/>
           &#125;<br/>
           <br/>
+          .primaryColorLight &#123;<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;background-color: {getColorString(colorPrimaryLight)}&#59;<br/>
+          &#125;<br/>
+          <br/>
           .secondaryColor&#123;<br/>
           &nbsp;&nbsp;&nbsp;&nbsp;background-color: {getColorString(colorSecondary)}&#59;<br/>
+          &#125;<br/>
+          <br/>
+          .secondaryColorLight&#123;<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;background-color: {getColorString(colorSecondaryLight)}&#59;<br/>
           &#125;<br/>
           <br/>
           .secondaryDarkColor&#123;<br/>
