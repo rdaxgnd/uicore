@@ -288,12 +288,12 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={styles.pageColumn} style={{marginTop: 120}}>
+        <div style={{...boxPadding, marginTop: 120}}>
+          <h2 style={{...h2Style, color: '#212127'}}>Essentials</h2>
+        </div>
+        <div className={styles.pageColumn} style={{marginTop: 40}}>
           <div>
-            <div style={{...boxPadding}}>
-              <h2 style={{...h2Style, color: '#212127'}}>Call</h2>
-            </div>
-            <div style={{marginTop: 40, ...boxPadding, ...boxRadius, backgroundColor: getColorString(colorPrimaryLight)}}>
+            <div style={{marginTop: 0, ...boxPadding, ...boxRadius, backgroundColor: getColorString(colorPrimaryLight)}}>
               <h1 style={{...h1Style, color: getColorString(colorPrimaryDark)}}>Call to Action</h1>
               <br/>
               <br/>
@@ -303,17 +303,9 @@ export default function Home() {
               <br/>
               <br/>
               <br/>
-              <br/>
-              <br/>
-              <br/>
               <button style={{backgroundColor: getColorString(colorPrimaryDark), ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: getColorString(colorPrimaryLight)}}>GO TO ACTION</button>
             </div>
-          </div>
-          <div>
-            <div style={{...boxPadding}}>
-              <h2 style={{...h2Style, color: '#212127'}}>Form</h2>
-            </div>
-            <div style={{backgroundColor: '#efefef', marginTop: 40, ...boxPadding, ...boxRadius}} className={styles.pageColumn}>
+            <div style={{backgroundColor: '#efefef', marginTop: 20, ...boxPadding, ...boxRadius}} className={styles.pageColumn}>
               <div>
                   <p style={{color: '#1C1C1E', marginBottom: 20}}>
                     It's and example web form to see how powerful our generated interfaces.
@@ -338,14 +330,68 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className={styles.pageColumn} style={{marginTop: 120}}>
           <div>
-            <div style={{...boxPadding}}>
-              <h2 style={{...h2Style, color: '#212127'}}>Alerts</h2>
+            <div style={{backgroundColor: '#efefef', marginTop: 0, ...boxPadding, ...boxRadius}} className={styles.pageColumn}>
+              <div>
+                <div className={styles.pageColumn} style={{backgroundColor: '#212127', color: getColorString(colorPrimaryLight), ...boxRadius, padding: 20}}>
+                  <div>
+                    Name
+                  </div>
+                  <div>
+                    Surname
+                  </div>
+                  <div style={{textAlign: 'right'}}>
+                    
+                  </div>
+                </div>
+                <div className={styles.pageColumn} style={{marginTop: 20, backgroundColor: '#ffffff', color: '#212127', ...boxRadius, padding: 20}}>
+                  <div>
+                    John
+                  </div>
+                  <div>
+                    Doe
+                  </div>
+                  <div style={{textAlign: 'right'}}>
+                    
+                  </div>
+                </div>
+                <div className={styles.pageColumn} style={{marginTop: 20, backgroundColor: '#ffffff', color: '#212127', ...boxRadius, padding: 20}}>
+                  <div>
+                    Charlie
+                  </div>
+                  <div>
+                    Brown
+                  </div>
+                  <div style={{textAlign: 'right'}}>
+                    
+                  </div>
+                </div>
+                <div className={styles.pageColumn} style={{marginTop: 20, backgroundColor: '#ffffff', color: '#212127', ...boxRadius, padding: 20}}>
+                  <div>
+                    Aaron
+                  </div>
+                  <div>
+                    Smith
+                  </div>
+                  <div style={{textAlign: 'right'}}>
+                    
+                  </div>
+                </div>
+                <div className={styles.pageColumn} style={{marginTop: 20, backgroundColor: '#ffffff', color: '#212127', ...boxRadius, padding: 20}}>
+                  <div>
+                    Robert
+                  </div>
+                  <div>
+                    Waldman
+                  </div>
+                  <div style={{textAlign: 'right'}}>
+                    
+                  </div>
+                </div>
+              </div>
             </div>
-            <div style={{marginTop: 40, ...boxPadding, ...boxRadius, backgroundColor: getColorString(colorPrimarySuccess)}}>
+            <div>
+            <div style={{marginTop: 20, ...boxPadding, ...boxRadius, backgroundColor: getColorString(colorPrimarySuccess)}}>
             <img className={styles.lowOpacity} style={{position: 'relative', float: 'right', height: 24}} src={'close.svg'}></img>
               <p style={{color: '#212127'}}><strong>Success!</strong> Sum dolor consectetur adipiscing.</p>
             </div>
@@ -361,19 +407,9 @@ export default function Home() {
             <img className={styles.lowOpacity} style={{position: 'relative', float: 'right', height: 24}} src={'close.svg'}></img>
               <p style={{color: '#212127'}}><strong>Info!</strong> Sum dolor consectetur adipiscing.</p>
             </div>
-          </div>
-          <div>
-            <div style={{...boxPadding}}>
-              <h2 style={{...h2Style, color: '#212127'}}>List</h2>
-            </div>
-            <div style={{backgroundColor: '#efefef', marginTop: 40, ...boxPadding, ...boxRadius}} className={styles.pageColumn}>
-              <div>
-              a
-              </div>
-            </div>
+        </div>
           </div>
         </div>
-        
       </div>
       <div className={styles.lowOpacity} style={{padding: 20, fontSize: 16, color: '#ffffff'}}>
         <div style={{padding: 14, fontSize: 14, lineHeight: 1.4, backgroundColor: '#242427', borderRadius: 8}}>
