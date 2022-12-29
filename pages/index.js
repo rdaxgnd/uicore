@@ -7,10 +7,10 @@ import styles from '../styles/Home.module.css'
 const varStyles = {
   boxradius: [3, 4, 8, 8, 8, 10, 10, 10, 10, 12, 12, 12, 16, 20, 24, 30, 34, 38],
   boxpadding: [30, 32, 34, 40, 42, 44, 46, 50, 52, 54, 56, 60],
-  boxborder: ['0px', '0px', '0px', '0px', '0px', '0px', '0px', '0px', '4px', '4px', '4px', '6px', '6px', '6px',],
+  boxborder: ['2px', '2px', '2px', '2px', '2px', '2px', '2px', '2px', '4px', '4px', '4px', '6px', '6px', '6px',],
 
-  h1: ['42px', '48px', '54px'],
-  h2: ['24px', '28px', '32px'],
+  h1: ['32px', '38px', '42px'],
+  h2: ['20px', '22px', '24px'],
   p: ['16px', '18px'],
 }
 
@@ -19,7 +19,7 @@ export default function Home() {
   // Default and start values
   const [boxRadius, setBoxRadius] = React.useState({ borderRadius: 12 })
   const [boxPadding, setBoxPadding] = React.useState({ padding: 30 })
-  const [boxBorder, setBoxBorder] = React.useState({ border: '0px' })
+  const [boxBorder, setBoxBorder] = React.useState({ border: '2px' })
 
   const [h1Style, setH1Style] = React.useState({ fontSize: '54px' })
   const [h2Style, setH2Style] = React.useState({ fontSize: '28px' })
@@ -97,13 +97,14 @@ export default function Home() {
           <img src='yellow.svg' style={{marginRight: 5}}></img>
           <img src='green.svg'></img>
         </div>
+
         <div className={styles.pageMain} style={{backgroundColor: getColorString(colorPrimary), ...boxRadius, ...boxPadding }}>
           <br/>
           <br/>
           <br/>
           <br/>
-          <h2>Primary</h2>
-          <p className={styles.lowOpacity} style={{marginTop: 8, fontSize: 16}}>{getColorText(colorPrimary)}</p>
+          <h2 style={{...h2Style, color: '#ffffff'}}>Primary</h2>
+          <p className={styles.lowOpacity} style={{marginTop: 8, fontSize: 16, color: '#ffffff'}}>{getColorText(colorPrimary)}</p>
         </div>
         <div className={styles.pageColumn}>
           <div style={{marginTop: 20, ...boxPadding, backgroundColor: getColorString(colorSecondary), ...boxRadius }}>
@@ -111,20 +112,97 @@ export default function Home() {
             <br/>
             <br/>
             <br/>
-            <h2>Secondary</h2>
-            <p className={styles.lowOpacity} style={{marginTop: 8, fontSize: 16}}>{getColorText(colorSecondary)}</p>
+            <h2 style={{...h2Style, color: '#ffffff'}}>Secondary</h2>
+            <p className={styles.lowOpacity} style={{marginTop: 8, fontSize: 16, color: '#ffffff'}}>{getColorText(colorSecondary)}</p>
           </div>
           <div style={{marginTop: 20, ...boxPadding, backgroundColor: getColorString(colorSecondaryDark), ...boxRadius }}>
             <br/>
             <br/>
             <br/>
             <br/>
-            <h2>Secondary Dark</h2>
-            <p className={styles.lowOpacity} style={{marginTop: 8, fontSize: 16}}>{getColorText(colorSecondaryDark)}</p>
+            <h2 style={{...h2Style, color: '#ffffff'}}>Secondary Dark</h2>
+            <p className={styles.lowOpacity} style={{marginTop: 8, fontSize: 16, color: '#ffffff'}}>{getColorText(colorSecondaryDark)}</p>
           </div>
         </div>
-        
 
+        <div style={{marginTop: 60}} className={styles.pageColumn}>
+          <div style={{...boxPadding}}>
+            <h1 style={{...h1Style, color: getColorString(colorPrimary)}}>Heading One</h1>
+            <h2 style={{...h2Style, marginTop: 20}}>Heading Two</h2>
+
+            <p style={{marginTop: 40}}><a href={'#'} style={{color: getColorString(colorPrimary), textDecoration: 'none'}}>Primary Link</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={'#'} style={{color: getColorString(colorSecondary), textDecoration: 'none'}}>Secondary Link</a></p>
+            <p style={{marginTop: 20}} className={styles.lowOpacity}><a href={'#'} style={{color: getColorString(colorPrimary), textDecoration: 'none'}}>Primary Link</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href={'#'} style={{color: getColorString(colorSecondary), textDecoration: 'none'}} className={styles.lowOpacity}>Secondary Link</a></p>
+
+          </div>
+          <div style={{...boxPadding}}>
+            <p style={{textAlign: 'justify'}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        </div>
+
+        <div style={{marginTop: 60}} className={styles.pageColumn}>
+          <div>
+            <button style={{backgroundColor: getColorString(colorPrimary), ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: '#ffffff'}}>PRIMARY</button>
+          </div>
+          <div>
+            <button style={{backgroundColor: getColorString(colorSecondary), ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: '#ffffff'}}>SECONDARY</button>
+          </div>
+          <div>
+            <button style={{backgroundColor: getColorString(colorSecondaryDark), ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: '#ffffff'}}>SECONDARY DARK</button>
+          </div>
+          <div>
+            <button style={{backgroundColor: '#212127', ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: '#ffffff'}}>NEUTRAL</button>
+          </div>
+        </div>
+        <div style={{marginTop: 20}} className={styles.pageColumn}>
+          <div>
+            <button className={styles.lowOpacity} style={{backgroundColor: getColorString(colorPrimary), ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: '#ffffff'}}>PRIMARY</button>
+          </div>
+          <div>
+            <button className={styles.lowOpacity} style={{backgroundColor: getColorString(colorSecondary), ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: '#ffffff'}}>SECONDARY</button>
+          </div>
+          <div>
+            <button className={styles.lowOpacity} style={{backgroundColor: getColorString(colorSecondaryDark), ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: '#ffffff'}}>SECONDARY DARK</button>
+          </div>
+          <div>
+            <button className={styles.lowOpacity} style={{backgroundColor: '#212127', ...boxRadius, border: 'none', padding: 20, width: '100%', fontSize: 14, fontWeight: 700, color: '#ffffff'}}>NEUTRAL</button>
+          </div>
+        </div>
+        <div style={{marginTop: 60}} className={styles.pageColumn}>
+          <div>
+            <button style={{backgroundColor: '#ffffff',border: `2px solid ${getColorString(colorPrimary)}`, ...boxRadius, padding: 16, width: '100%', fontSize: 12, fontWeight: 700, color: getColorString(colorPrimary)}}>PRIMARY</button>
+          </div>
+          <div>
+            <button style={{backgroundColor: '#ffffff',border: `2px solid ${getColorString(colorSecondary)}`, ...boxRadius, padding: 16, width: '100%', fontSize: 12, fontWeight: 700, color: getColorString(colorSecondary)}}>SECONDARY</button>
+          </div>
+          <div>
+            <button style={{backgroundColor: '#ffffff',border: `2px solid ${getColorString(colorSecondaryDark)}`, ...boxRadius, padding: 16, width: '100%', fontSize: 12, fontWeight: 700, color: getColorString(colorSecondaryDark)}}>SECONDARY DARK</button>
+          </div>
+          <div>
+            <button style={{backgroundColor: '#ffffff',border: '2px solid #cccccc', ...boxRadius, padding: 16, width: '100%', fontSize: 12, fontWeight: 700, color: '#cccccc'}}>NEUTRAL LIGHT</button>
+          </div>
+          <div>
+            <button style={{backgroundColor: '#ffffff',border: '2px solid #212127', ...boxRadius, padding: 16, width: '100%', fontSize: 12, fontWeight: 700, color: '#212127'}}>NEUTRAL</button>
+          </div>
+        </div>
+        <div style={{marginTop: 20}} className={styles.pageColumn}>
+          <div>
+            <button className={styles.lowOpacity} style={{backgroundColor: '#ffffff',border: `2px solid ${getColorString(colorPrimary)}`, ...boxRadius, padding: 16, width: '100%', fontSize: 12, fontWeight: 700, color: getColorString(colorPrimary)}}>PRIMARY</button>
+          </div>
+          <div>
+            <button className={styles.lowOpacity} style={{backgroundColor: '#ffffff',border: `2px solid ${getColorString(colorSecondary)}`, ...boxRadius, padding: 16, width: '100%', fontSize: 12, fontWeight: 700, color: getColorString(colorSecondary)}}>SECONDARY</button>
+          </div>
+          <div>
+            <button className={styles.lowOpacity} style={{backgroundColor: '#ffffff',border: `2px solid ${getColorString(colorSecondaryDark)}`, ...boxRadius, padding: 16, width: '100%', fontSize: 12, fontWeight: 700, color: getColorString(colorSecondaryDark)}}>SECONDARY DARK</button>
+          </div>
+          <div>
+            <button className={styles.lowOpacity} style={{backgroundColor: '#ffffff',border: '2px solid #cccccc', ...boxRadius, padding: 16, width: '100%', fontSize: 12, fontWeight: 700, color: '#cccccc'}}>NEUTRAL LIGHT</button>
+          </div>
+          <div>
+            <button className={styles.lowOpacity} style={{backgroundColor: '#ffffff',border: '2px solid #212127', ...boxRadius, padding: 16, width: '100%', fontSize: 12, fontWeight: 700, color: '#212127'}}>NEUTRAL</button>
+          </div>
+        </div>
+
+        
         
       </div>
       <div className={styles.lowOpacity} style={{padding: 20, fontSize: 16, color: '#ffffff'}}>
@@ -160,17 +238,13 @@ export default function Home() {
         }
         h1 {
           margin: 0px auto;
-          color: #ffffff;
         }
         h2 {
           margin: 0px auto;
-          color: #ffffff;
-          font-size: 20px;
         }
         p {
           margin: 0px;
           line-height: 24px;
-          color: #ffffff;
         }
       `}</style>
     </div>
