@@ -27,6 +27,7 @@ export default function Home() {
 
   const [colorPrimary, setColorPrimary] = useState({ red: 25, green: 25, blue: 25 });
   const [colorSecondary, setColorSecondary] = useState({ red: 25, green: 25, blue: 25 });
+  const [colorSecondaryDark, setColorSecondaryDark] = useState({ red: 25, green: 25, blue: 25 });
 
   // Random generator function
   function generateStyles() {
@@ -44,19 +45,32 @@ export default function Home() {
       green: Math.floor(Math.random() * 256),
       blue: Math.floor(Math.random() * 256)
     };
+    setColorPrimary(newColorPrimary);
+
     const newColorSecondary = {
       red: Math.floor(Math.random() * 256),
       green: Math.floor(Math.random() * 256),
       blue: Math.floor(Math.random() * 256)
     };
-    setColorPrimary(newColorPrimary);
     setColorSecondary(newColorSecondary);
+
+    const newColorSecondaryDark = {
+      red: Math.max(0, newColorSecondary.red - Math.round(newColorSecondary.red * 0.50)),
+      green: Math.max(0, newColorSecondary.green - Math.round(newColorSecondary.green * 0.50)),
+      blue: Math.max(0, newColorSecondary.blue - Math.round(newColorSecondary.blue * 0.50))
+    };
+    setColorSecondaryDark(newColorSecondaryDark);
 
   }
 
   // RGB value convert to string
   function getColorString(color) {
     return `rgb(${color.red}, ${color.green}, ${color.blue})`;
+  }
+
+  // RGB value convert to text
+  function getColorText(color) {
+    return `R: ${color.red} G: ${color.green} B: ${color.blue}`;
   }
 
   return (
@@ -68,9 +82,9 @@ export default function Home() {
     <div className={styles.container} style={{fontSize: 16}}>
       <div style={{padding: 20, color: '#DFDFDF'}}>
         <div className={styles.sticky}>
-          <p><img src='x.svg' style={{width: 24, height:24}}></img></p>
+          <p><span style={{fontWeight: 700}}>uiCore</span></p>
           <br/>
-          <p>Generate a brand new CSS theme with one click!</p>
+          <p>Generate a brand new uiKit with one click!</p>
           <br/><br/>
           <button className={styles.generateButton} onClick={generateStyles}>
           Generate
@@ -83,10 +97,34 @@ export default function Home() {
           <img src='yellow.svg' style={{marginRight: 5}}></img>
           <img src='green.svg'></img>
         </div>
-        
-        <div>
-          <p>etc..</p>
+        <div className={styles.pageMain} style={{backgroundColor: getColorString(colorPrimary), ...boxRadius, ...boxPadding }}>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <h2>Primary</h2>
+          <p className={styles.lowOpacity} style={{marginTop: 8, fontSize: 16}}>{getColorText(colorPrimary)}</p>
         </div>
+        <div className={styles.pageColumn}>
+          <div style={{marginTop: 20, ...boxPadding, backgroundColor: getColorString(colorSecondary), ...boxRadius }}>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <h2>Secondary</h2>
+            <p className={styles.lowOpacity} style={{marginTop: 8, fontSize: 16}}>{getColorText(colorSecondary)}</p>
+          </div>
+          <div style={{marginTop: 20, ...boxPadding, backgroundColor: getColorString(colorSecondaryDark), ...boxRadius }}>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <h2>Secondary Dark</h2>
+            <p className={styles.lowOpacity} style={{marginTop: 8, fontSize: 16}}>{getColorText(colorSecondaryDark)}</p>
+          </div>
+        </div>
+        
+
         
       </div>
       <div className={styles.lowOpacity} style={{padding: 20, fontSize: 16, color: '#ffffff'}}>
@@ -97,6 +135,10 @@ export default function Home() {
           <br/>
           .secondaryColor&#123;<br/>
           &nbsp;&nbsp;&nbsp;&nbsp;background-color: {getColorString(colorSecondary)}&#59;<br/>
+          &#125;<br/>
+          <br/>
+          .secondaryDarkColor&#123;<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;background-color: {getColorString(colorSecondaryDark)}&#59;<br/>
           &#125;<br/>
           <br/>
         </div>
@@ -126,7 +168,7 @@ export default function Home() {
           font-size: 20px;
         }
         p {
-          margin-top: 16px;
+          margin: 0px;
           line-height: 24px;
           color: #ffffff;
         }
