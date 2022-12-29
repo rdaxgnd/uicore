@@ -344,48 +344,56 @@ export default function Home() {
                     
                   </div>
                 </div>
-                <div className={styles.pageColumn} style={{marginTop: 20, backgroundColor: '#ffffff', color: '#212127', ...boxRadius, padding: 20}}>
-                  <div>
+                <div className={styles.pageColumn} style={{marginTop: 20, backgroundColor: '#ffffff', color: '#212127', ...boxRadius}}>
+                  <div style={{padding: 20}}>
                     John
                   </div>
-                  <div>
+                  <div style={{padding: 20}}>
                     Doe
                   </div>
-                  <div style={{textAlign: 'right'}}>
-                    
+                  <div style={{textAlign: 'right', padding: 12}}>
+                    <div style={{float: 'right', backgroundColor: getColorString(colorPrimaryDark), padding: 6, ...boxRadius}}>
+                    <img className={styles.lowOpacity} style={{width: 22, verticalAlign: 'middle'}} src={'check_w.svg'}></img>
+                    </div>
                   </div>
                 </div>
-                <div className={styles.pageColumn} style={{marginTop: 20, backgroundColor: '#ffffff', color: '#212127', ...boxRadius, padding: 20}}>
-                  <div>
+                <div className={styles.pageColumn} style={{marginTop: 20, backgroundColor: '#ffffff', color: '#212127', ...boxRadius}}>
+                  <div style={{padding: 20}}>
                     Charlie
                   </div>
-                  <div>
+                  <div style={{padding: 20}}>
                     Brown
                   </div>
-                  <div style={{textAlign: 'right'}}>
-                    
+                  <div style={{textAlign: 'right', padding: 12}}>
+                    <div style={{float: 'right', backgroundColor: getColorString(colorPrimaryDark), padding: 6, ...boxRadius}}>
+                    <img className={styles.lowOpacity} style={{width: 22, verticalAlign: 'middle'}} src={'check_w.svg'}></img>
+                    </div>
                   </div>
                 </div>
-                <div className={styles.pageColumn} style={{marginTop: 20, backgroundColor: '#ffffff', color: '#212127', ...boxRadius, padding: 20}}>
-                  <div>
+                <div className={styles.pageColumn} style={{marginTop: 20, backgroundColor: '#ffffff', color: '#212127', ...boxRadius}}>
+                  <div style={{padding: 20}}>
                     Aaron
                   </div>
-                  <div>
+                  <div style={{padding: 20}}>
                     Smith
                   </div>
-                  <div style={{textAlign: 'right'}}>
-                    
+                  <div style={{textAlign: 'right', padding: 12}}>
+                    <div style={{float: 'right', backgroundColor: getColorString(colorPrimaryDark), padding: 6, ...boxRadius}}>
+                    <img className={styles.lowOpacity} style={{width: 22, verticalAlign: 'middle'}} src={'check.svg'}></img>
+                    </div>
                   </div>
                 </div>
-                <div className={styles.pageColumn} style={{marginTop: 20, backgroundColor: '#ffffff', color: '#212127', ...boxRadius, padding: 20}}>
-                  <div>
+                <div className={styles.pageColumn} style={{marginTop: 20, backgroundColor: '#ffffff', color: '#212127', ...boxRadius}}>
+                  <div style={{padding: 20}}>
                     Robert
                   </div>
-                  <div>
+                  <div style={{padding: 20}}>
                     Waldman
                   </div>
-                  <div style={{textAlign: 'right'}}>
-                    
+                  <div style={{textAlign: 'right', padding: 12}}>
+                    <div style={{float: 'right', backgroundColor: getColorString(colorPrimaryDark), padding: 6, ...boxRadius}}>
+                    <img className={styles.lowOpacity} style={{width: 22, verticalAlign: 'middle'}} src={'close.svg'}></img>
+                    </div>
                   </div>
                 </div>
               </div>
